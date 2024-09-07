@@ -10,3 +10,13 @@ def greetSomeone(greeting, name):
 print(sum(12,13))
 print(sub(25,15))
 print(greetSomeone("Hello", "Shubham"))
+
+# functions with return types
+def returnNothing() -> None:
+    print("Just a normal function")
+
+def returnInt(num) -> int:
+    return num * num;
+
+returnNothing()
+print(returnInt(23))
