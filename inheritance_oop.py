@@ -13,6 +13,9 @@ class Man(Human):
         super().__init__(name)
         self.country = country
 
+    def printName(self):
+        print("My Name is ", self.name , " and I am from " + self.country)
+
     def printCountry(self):
         print("Country: " + self.country)
 
