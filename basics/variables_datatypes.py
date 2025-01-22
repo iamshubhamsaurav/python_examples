@@ -18,6 +18,9 @@ print("The number entered by user is : ", num)
 float_num = float(input("Enter a decimal number: "))
 print("The decimal number entered by used is : ", float_num)
 
+int_num = int(float_num)
+print(float_num)
+
 num_str = str(num)
 float_num_str = str(float_num)
 
