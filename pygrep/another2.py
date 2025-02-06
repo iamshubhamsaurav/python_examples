@@ -75,3 +75,5 @@ res = count_matches_in_file('test.txt', 'bc')
 print(res)
 x = find_first_match_in_file('hi.txt', 'bc')
 print(x)
+
+# https://www.geeksforgeeks.org/wildcard-pattern-matching/
