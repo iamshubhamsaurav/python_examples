@@ -19,26 +19,19 @@ print(footerlinks.text)
 
 #use find_element to find multiple element and length
 footerlinks = driver.find_element(By.XPATH,"//div[@class='footer'] //a")
-#print("LENGTH :",len(footerlinks))
-
-#---------------------------------------------------------------------------------------------------------
 
 #find_elements to loacte single element
 element = driver.find_elements(By.XPATH,"//input[@id='small-searchterms']")
 print("Length  ",len(element))
 
 element[0].send_keys("Apple MacBook Pro13-inch")
-# print(element[0].text)
-# print(element[0].value)
+
 sleep(2)
 #locate multiple elements
 element = driver.find_elements(By.XPATH, "//div[@class='footer']//a")
 print(len(element))
-# print(element[0].text)
-# print(element.text)
-# for ele in element:
-# print(ele.text)
-#Element not available then throw exception
+
+
 login_element = driver.find_elements(By.LINK_TEXT, "Log")
 print("Elements returened :", len(login_element))
 # login_element.click()

@@ -14,6 +14,6 @@ search_box.send_keys("Selenium")
 sleep(2)
 search_box.submit()
 sleep(2)
-#driver.find_element(By.XPATH, "//h3[text()='Selenium']").click()
+
 sleep(2)
 driver.close()
