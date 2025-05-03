@@ -4,4 +4,4 @@ app = MidAPI()
 
 @app.get('/app')
 def home_app():
-    return ""
+    return "Hello"

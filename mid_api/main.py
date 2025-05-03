@@ -1,7 +1,7 @@
 from typing import Any
 
 # Internal Imports
-from mid_api.methods import Methods
+from methods import Methods
 from response import Response
 
 class MidAPI:
@@ -15,7 +15,7 @@ class MidAPI:
         response = Response()
         for path, handlers_dict in self.routes.items():
             for request_method, handler in handlers_dict.items():
-                if environ['REQUEST_METHOD'] == request_method and path == environ['PATH']:
+                if environ['REQUEST_METHOD'] == request_method and path == environ['PATH_INFO']:
                     handler(environ, response)
                     response.as_wsgi(start_response)
                     return [response.text.encode()]
@@ -29,6 +29,11 @@ class MidAPI:
         self.routes[path_name][method] = handler
         return handler
 
+    def get(self, path=None):
+        def wrapper(handler):
+            return self.route_handler(path=path, handler=handler, method=Methods.GET.value)
+        
+        return wrapper
     
     def post(self, path=None):
         def wrapper(handler):
@@ -53,3 +58,11 @@ class MidAPI:
             return self.route_handler(path=path, handler=handler, method=Methods.DELETE.value)
         
         return wrapper
+
+app = MidAPI()
+
+@app.get('/app')
+def home_app(req, res):
+    res.status_code = 200
+    res.text = "hello"
+    return res.send(text="text", status_code=200)
